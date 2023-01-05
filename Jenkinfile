@@ -1,15 +1,31 @@
 pipeline {
-
 	label {
-		label "built-in"
+	    label "built-in"
 		customworkspace "/data/pipeline"
 	}
-	    
-             stages {
-		  stage ('Hello'){
-			steps {
-				echo "Hello  world"
-}
-}
-}
+	 
+    stages {
+	        stage ('install-apache') {
+			         steps {
+		                        sh "yum install httpd -y"			 
+					 }
+			
+			}
+			
+			stage ('deploy-index') {
+			         steps {
+		                        sh "cp -r index.html /war/www/html"
+                                sh "chmod -R 777 /wae/www/html/index.html"								
+					 }
+			
+			}
+			
+			stage ('restart-apache') {
+			         steps {
+		                        sh "service httpd restart"			 
+					 }
+			
+			}
+	}	
+
 }
