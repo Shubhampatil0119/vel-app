@@ -5,14 +5,14 @@ pipeline {
 	}
 	 
     stages {
-	        stage ('install-apache') {
+	        stage ("install-apache") {
 			         steps {
 		                        sh "yum install httpd -y"			 
 					 }
 			
 			}
 			
-			stage ('deploy-index') {
+			stage ("deploy-index") {
 			         steps {
 		                        sh "cp -r index.html /war/www/html"
                                 sh "chmod -R 777 /wae/www/html/index.html"								
@@ -20,7 +20,7 @@ pipeline {
 			
 			}
 			
-			stage ('restart-apache') {
+			stage ("restart-apache") {
 			         steps {
 		                        sh "service httpd restart"			 
 					 }
