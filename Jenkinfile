@@ -1,6 +1,9 @@
 pipeline {
 
-	agent any
+	label {
+		label "built-in"
+		customworkspace "/data/pipeline'
+	}
 	    
              stages {
 		  stage ('Hello'){
