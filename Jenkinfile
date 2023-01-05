@@ -2,7 +2,7 @@ pipeline {
 
 	label {
 		label "built-in"
-		customworkspace "/data/pipeline'
+		customworkspace "/data/pipeline"
 	}
 	    
              stages {
