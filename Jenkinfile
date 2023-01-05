@@ -1,8 +1,11 @@
 pipeline {
-	         label {
-	                      label "built-in"
-		              customworkspace "/data/pipeline"
-	                }
+	        agent{
+                          label {
+	                            label "built-in"
+				    customworkspace "/data/pipeline"
+		
+                	      }
+	             }
 	 
     stages {
 	             stage ('install-apache') {
